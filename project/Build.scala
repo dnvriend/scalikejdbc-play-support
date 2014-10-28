@@ -93,7 +93,9 @@ object ScalikeJDBCPlaySupportProjects extends Build {
       ),
       testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "sequential", "true")
     ) : _*
-  ).dependsOn(scalikejdbcPlayPlugin % "test->test")
+  // FIXME: sbt.ResolveException: unresolved dependency: org.scalikejdbc#scalikejdbc-play-plugin_2.10;2.3.2: configuration not public in org.scalikejdbc#scalikejdbc-play-plugin_2.10;2.3.2: 'test'. It was required from org.scalikejdbc#scalikejdbc-play-fixture-plugin_2.10;2.3.2 test
+  //).dependsOn(scalikejdbcPlayPlugin % "test->test")
+  ).dependsOn(scalikejdbcPlayPlugin)
 
   // play plugin zentasks example
   lazy val scalikejdbcPlayPluginTestZentasks = {
